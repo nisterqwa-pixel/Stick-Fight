@@ -16,3 +16,11 @@ class Player(pg.sprite.Sprite):
 		self.velocity.y += constants.GRAVITY * dt
 		self.position += self.velocity * dt
 		self.rect.center = self.position
+
+players = pg.sprite.Group()
+player1 = Player(
+	color		= "red",
+	position	= pg.Vector2(1280 / 2, 720 / 2),
+	dimentions	= pg.Vector2(60, 60)
+)
+players.add(player1)
