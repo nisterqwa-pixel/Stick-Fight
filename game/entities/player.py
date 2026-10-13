@@ -3,7 +3,7 @@ import game.constants as constants
 
 class Player(pg.sprite.Sprite):
 	def __init__(self, color, position: pg.Vector2, dimentions: pg.Vector2):
-		super.__init__()
+		super().__init__()
 		self.position = position
 		self.velocity = pg.Vector2(0, 0)
 
