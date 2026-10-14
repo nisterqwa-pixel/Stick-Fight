@@ -1,5 +1,6 @@
 import pygame as pg
 import game.constants as constants
+from game.inputs.movement import check_movement_input
 
 class Player(pg.sprite.Sprite):
 	def __init__(self, color, position: pg.Vector2, dimentions: pg.Vector2):
@@ -13,7 +14,7 @@ class Player(pg.sprite.Sprite):
 		self.rect.center = self.position
 
 	def update(self, dt):
-		self.velocity.y += constants.GRAVITY * dt
+		check_movement_input(self)
 		self.position += self.velocity * dt
 		self.rect.center = self.position
 
