@@ -1,4 +1,5 @@
 import pygame as pg
+from game.entities.player import players
 
 class Game:
 	def __init__(self):
@@ -14,9 +15,12 @@ class Game:
 				if event.type == pg.QUIT:
 					running = False
 			
-			self.screen.fill("black")
-			pg.display.flip()
-			dt = self.clock.tick(60) / 1000
+			players.update(dt)
 
+			self.screen.fill("black")
+			players.draw(self.screen)
+			pg.display.flip()
+
+			dt = self.clock.tick(60) / 1000
 		pg.quit()
 
