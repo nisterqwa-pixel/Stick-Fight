@@ -6,6 +6,7 @@ class Player(pg.sprite.Sprite):
 	def __init__(self, color, position: pg.Vector2, dimentions: pg.Vector2):
 		super().__init__()
 		self.position = position
+		self.velocity = pg.Vector2(0, 0)
 		self.direction = pg.Vector2(0, 0)
 
 		self.image = pg.Surface([dimentions.x, dimentions.y])
@@ -15,7 +16,7 @@ class Player(pg.sprite.Sprite):
 
 	def update(self, dt):
 		check_movement_input(self)
-		self.position += self.direction * constants.SPEED * dt
+		self.position += self.velocity * dt
 		self.rect.center = self.position
 
 players = pg.sprite.Group()
