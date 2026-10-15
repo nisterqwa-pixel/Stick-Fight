@@ -1,5 +1,5 @@
 import pygame as pg
-import game.constants as constants
+import game.constants as CONSTANTS
 from math import sqrt
 
 def check_movement_input(player):
@@ -11,8 +11,8 @@ def check_movement_input(player):
 
 	normalize_vector(player.direction)
 
-	player.velocity.x = player.direction.x * constants.SPEED
-	player.velocity.y = player.direction.y * constants.SPEED
+	player.velocity.x = player.direction.x * CONSTANTS.SPEED
+	player.velocity.y = player.direction.y * CONSTANTS.SPEED
 
 def normalize_vector(direction: pg.Vector2):
 	magnitude = sqrt(direction.x**2 + direction.y**2)

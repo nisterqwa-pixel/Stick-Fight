@@ -1,5 +1,4 @@
 import pygame as pg
-import game.constants as constants
 from game.inputs.movement import check_movement_input
 
 class Player(pg.sprite.Sprite):
