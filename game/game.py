@@ -1,12 +1,13 @@
-import pygame
+import pygame as pg
+from game.entities.player import players
 from game.entities.simple_platform import Platform #rename to "[...].simple_platform due to pythons treatment to '-' sign"
 
 class Game:
 	def __init__(self):
-		pygame.init()
-		self.screen = pygame.display.set_mode((1280, 720), pygame.SCALED, vsync=1)
-		self.clock = pygame.time.Clock()
-		self.platforms = pygame.sprite.Group()
+		pg.init()
+		self.screen = pg.display.set_mode((1280, 720), pg.SCALED, vsync=1)
+		self.clock = pg.time.Clock()
+    self.platforms = pygame.sprite.Group()
 		self.platforms.add(
 						Platform(
 			            		 0,
@@ -16,19 +17,21 @@ class Game:
 						        )
 						)
 
-
 	def run(self):
 		dt = 0
 		running = True
 		while running:
-			for event in pygame.event.get():
-				if event.type == pygame.QUIT:
+			for event in pg.event.get():
+				if event.type == pg.QUIT:
 					running = False
 			
-			self.screen.fill("black")
-			self.platforms.draw(self.screen)
-			pygame.display.flip()
-			dt = self.clock.tick(60) / 1000
+			players.update(dt)
 
-		pygame.quit()
+			self.screen.fill("black")
+      self.platforms.draw(self.screen)
+			players.draw(self.screen)
+			pg.display.flip()
+
+			dt = self.clock.tick(60) / 1000
+		pg.quit()
 
