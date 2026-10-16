@@ -1,4 +1,5 @@
 import pygame
+import game.constants as CONSTANTS
 
 class Platform(pygame.sprite.Sprite):
     def __init__(self, xloc, yloc, width, height):
@@ -9,3 +10,13 @@ class Platform(pygame.sprite.Sprite):
         self.rect.y = yloc 
         self.rect.x = xloc 
         
+platforms = pygame.sprite.Group()
+winsz = ()
+  
+platform1 = Platform(
+	0,
+	(CONSTANTS.SCREEN["height"]//3)*2 ,
+	CONSTANTS.SCREEN["width"],
+ 	CONSTANTS.SCREEN["height"]//3
+)     
+platforms.add(platform1)
